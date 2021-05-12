@@ -6,8 +6,9 @@ import (
 
 // Pokemon
 type Ability struct {
-	Id   uint
-	Name string
+	Id           uint   `json:"id"`
+	Name         string `json:"name"`
+	IsMainSeries bool   `json:"isMainSeries"`
 }
 
 type Pokemon struct {
@@ -61,8 +62,28 @@ type PokemonDetailDto struct {
 	Types                  []interface{} `json:"types"`
 }
 
+type PokemonDetail struct {
+	Id                     uint          `json:"id"`
+	Name                   string        `json:"name"`
+	Order                  uint          `json:"order"`
+	Height                 uint          `json:"height"`
+	Weight                 uint          `json:"weight"`
+	Abilities              []Ability     `json:"abilities"`
+	BaseExperience         uint          `json:"base_experience"`
+	Forms                  []interface{} `json:"forms"`
+	GameIndices            []interface{} `json:"game_indices"`
+	HeldItems              []interface{} `json:"held_items"`
+	IsDefault              bool          `json:"is_default"`
+	LocationAreaEncounters string        `json:"location_area_encounters"`
+	Moves                  []interface{} `json:"moves"`
+	PastTypes              []interface{} `json:"past_types"`
+	Stats                  []interface{} `json:"stats"`
+	Types                  []interface{} `json:"types"`
+}
+
 // PokemonApiClient
 type PokemonApiClient interface {
-	GetPokemons(ctx context.Context) ([]PokemonDto, error)
+	GetPokemons(ctx context.Context) ([]Pokemon, error)
 	GetPokemonDetail(ctx context.Context, pokemonName string) (PokemonDetailDto, error)
+	GetPokemonAbility(ctx context.Context, pokemonName string) (Ability, error)
 }
