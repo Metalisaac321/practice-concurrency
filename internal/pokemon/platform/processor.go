@@ -39,22 +39,24 @@ func (p *PokemonDetailProcessor) launch(ctx context.Context, pokemonsDto []pokem
 			}
 
 			pokemonDetail := pokemon.PokemonDetail{
-				Id:                     pokemonDetailDto.Id,
-				Name:                   pokemonDetailDto.Name,
-				Order:                  pokemonDetailDto.Order,
-				Height:                 pokemonDetailDto.Height,
-				Weight:                 pokemonDetailDto.Weight,
-				Abilities:              abilities,
-				BaseExperience:         pokemonDetailDto.BaseExperience,
-				Forms:                  pokemonDetailDto.Forms,
-				GameIndices:            pokemonDetailDto.GameIndices,
-				HeldItems:              pokemonDetailDto.HeldItems,
-				IsDefault:              pokemonDetailDto.IsDefault,
-				LocationAreaEncounters: pokemonDetailDto.LocationAreaEncounters,
-				Moves:                  pokemonDetailDto.Moves,
-				PastTypes:              pokemonDetailDto.PastTypes,
-				Stats:                  pokemonDetailDto.Stats,
-				Types:                  pokemonDetailDto.Types,
+				PokemonDetailDto: pokemon.PokemonDetailDto{
+					Id:                     pokemonDetailDto.Id,
+					Name:                   pokemonDetailDto.Name,
+					Order:                  pokemonDetailDto.Order,
+					Height:                 pokemonDetailDto.Height,
+					Weight:                 pokemonDetailDto.Weight,
+					BaseExperience:         pokemonDetailDto.BaseExperience,
+					Forms:                  pokemonDetailDto.Forms,
+					GameIndices:            pokemonDetailDto.GameIndices,
+					HeldItems:              pokemonDetailDto.HeldItems,
+					IsDefault:              pokemonDetailDto.IsDefault,
+					LocationAreaEncounters: pokemonDetailDto.LocationAreaEncounters,
+					Moves:                  pokemonDetailDto.Moves,
+					PastTypes:              pokemonDetailDto.PastTypes,
+					Stats:                  pokemonDetailDto.Stats,
+					Types:                  pokemonDetailDto.Types,
+				},
+				Abilities: abilities,
 			}
 
 			p.pokemonsDetailChan <- pokemonDetail

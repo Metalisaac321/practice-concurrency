@@ -63,22 +63,8 @@ type PokemonDetailDto struct {
 }
 
 type PokemonDetail struct {
-	Id                     uint          `json:"id"`
-	Name                   string        `json:"name"`
-	Order                  uint          `json:"order"`
-	Height                 uint          `json:"height"`
-	Weight                 uint          `json:"weight"`
-	Abilities              []Ability     `json:"abilities"`
-	BaseExperience         uint          `json:"base_experience"`
-	Forms                  []interface{} `json:"forms"`
-	GameIndices            []interface{} `json:"game_indices"`
-	HeldItems              []interface{} `json:"held_items"`
-	IsDefault              bool          `json:"is_default"`
-	LocationAreaEncounters string        `json:"location_area_encounters"`
-	Moves                  []interface{} `json:"moves"`
-	PastTypes              []interface{} `json:"past_types"`
-	Stats                  []interface{} `json:"stats"`
-	Types                  []interface{} `json:"types"`
+	PokemonDetailDto
+	Abilities []Ability `json:"abilities"`
 }
 
 // PokemonApiClient
